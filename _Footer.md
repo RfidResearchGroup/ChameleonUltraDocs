@@ -1,0 +1,1 @@
+Chameleon Ultra - [GPLV3 Licensed](https://github.com/RfidResearchGroup/ChameleonUltra/blob/main/LICENSE) - Made with ❤️ by the community

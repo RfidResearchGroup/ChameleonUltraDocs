@@ -1,0 +1,51 @@
+name: Deploy this repository (wiki) to the wiki repository of ChameleonUltra
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  deploy-wiki:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          path: source-repo
+          
+      - name: Checkout wiki repository
+        uses: actions/checkout@v4
+        with:
+          repository: RfidResearchGroup/ChameleonUltra.wiki
+          path: wiki-repo
+          token: ${{ secrets.WIKI_DEPLOY_TOKEN }}
+          
+      - name: Copy content to wiki repository
+        run: |
+          # Remove everything from wiki except .git directory
+          find wiki-repo -mindepth 1 -maxdepth 1 -not -name .git -exec rm -rf {} +
+          
+          # Copy all files from source to wiki
+          cp -r source-repo/* wiki-repo/
+          
+          # Debug info
+          echo "Files to be committed to wiki:"
+          ls -la wiki-repo
+
+      - name: Commit and push to wiki
+        working-directory: wiki-repo
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Add all changes
+          git add .
+          
+          # Commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update wiki content from docs repository"
+            git push
+          fi
