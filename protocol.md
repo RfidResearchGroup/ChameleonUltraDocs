@@ -309,6 +309,14 @@ Notes:
 * Command: 9+N*4 bytes: `id[5]|new_key[4]|old_key1[4]|old_key2[4]|...` (N>=1). . ID as 5 bytes. Keys as 4 bytes.
 * Response: no data
 * CLI: cf `lf em 410x write`
+### 3002: HIDPROX_SCAN
+* Command: no data
+* Response: 13 bytes: `format[1]|facility_code[4]|card_number[5]|issue_level[1]|oem[2]`.
+* CLI: cf `lf hid prox read`
+### 3003: HIDPROX_WRITE_TO_T55XX
+* Command: 17+N*4 bytes: `format[1]|facility_code[4]|card_number[5]|issue_level[1]|oem[2]|new_key[4]|old_key1[4]|old_key2[4]|...` (N>=1). Keys as 4 bytes.
+* Response: no data
+* CLI: cf `lf hid prox write`
 ### 4000: MF1_WRITE_EMU_BLOCK_DATA
 * Command: 1+N*16 bytes: `block_start|block_data1[16]|block_data2[16]|...` (1<=N<=31)
 * Response: no data
@@ -444,6 +452,15 @@ Notes:
 * Command: no data
 * Response: 5 bytes. `id[5]`. ID as 5 bytes.
 * CLI: cf `lf em 410x econfig`
+### 5002: HIDPROX_SET_EMU_ID
+* Command: 13 bytes: `format[1]|facility_code[4]|card_number[5]|issue_level[1]|oem[2]`.
+* Response: no data
+* CLI: cf `lf hid prox econfig`
+### 5003: HIDPROX_GET_EMU_ID
+* Command: no data
+* Response: 13 bytes: `format[1]|facility_code[4]|card_number[5]|issue_level[1]|oem[2]`.
+* CLI: cf `lf hid prox econfig -s 1 --fc 107 --cn 10044 --format H10301`
+
 
 ## New data payloads: guidelines for developers
 

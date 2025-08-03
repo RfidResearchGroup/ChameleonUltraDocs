@@ -79,10 +79,10 @@ functions have been realized with it!
 | Card Type                       | Encoding Type | Whether the hardware supports | Does the software support | Whether the application layer supports |                                          Note |
 |---------------------------------|:-------------:|------------------------------:|---------------------------|:--------------------------------------:|----------------------------------------------:|
 | Other than <125KHz/ASK/PSK/FSK> |      No       |                            No | No                        |                   No                   | Only 125 khz RF, Modulation ASK, FSK and PSK. |
-| EM410x                          |      ASK      |                       Support | Support                   |                Support                 |                   EM4100 is support(AD 64bit) |
+| EM410x                          |      ASK      |                       Support | Support                   |                Support                 |                   EM4100 is support (AD 16/32/64bit) |
 | T5577                           |      ASK      |                       Support | Support                   |          Not yet implemented           |                                               |
 | EM4305                          |      ASK      |                       Support | Support                   |          Not yet implemented           |                                               |
-| HID Prox                        |      FSK      |                       Support | Support                   |          Not yet implemented           |                                               |
+| HID Prox                        |      FSK      |                       Support | Support                   |                Support               |                                               |
 | Indala                          |      PSK      |                       Support | Support                   |          Not yet implemented           |                                               |
 | FDX-B                           |      ASK      |                       Support | Support                   |          Not yet implemented           |                                               |
 | Paradox                         |      FSK      |                       Support | Support                   |          Not yet implemented           |                                               |
@@ -107,7 +107,7 @@ functions have been realized with it!
 | EM410x                          |      ASK      |                       Support | Support                   |                Support                 |                                               |
 | T5577                           |      ASK      |                       Support | Support                   |             Support(Write)             |                                               |
 | EM4305                          |      ASK      |                       Support | Support                   |          Not yet implemented           |                                               |
-| HID Prox                        |      FSK      |                       Support | Support                   |          Not yet implemented           |                                               |
+| HID Prox                        |      FSK      |                       Support | Support                   |                 Support            |                                               |
 | Indala                          |      PSK      |                       Support | Support                   |          Not yet implemented           |                                               |
 | FDX-B                           |      ASK      |                       Support | Support                   |          Not yet implemented           |                                               |
 | Paradox                         |      FSK      |                       Support | Support                   |          Not yet implemented           |                                               |
