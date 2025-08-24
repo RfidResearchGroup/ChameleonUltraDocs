@@ -5,6 +5,7 @@
 Global firmware+CLI versions are following the [semantic versioning](https://semver.org/) logic mostly regarding the protocol version, so third party clients (GUIs, mobile apps, SDKs) can rely on firmware version to know their level of compatibility.
 
 Given a version number MAJOR.MINOR.PATCH, we will increment the:
+
 * MAJOR version when we are breaking the existing protocol format
 * MINOR version when we are extending the protocol format in a backward compatible manner (new commands,...)
 * PATCH version when we are releasing bugfixes not affecting the protocol description
@@ -18,14 +19,28 @@ For the development channel, a client compatible with versions X.y.z can accept 
 Cf [GET_APP_VERSION](#1000-get_app_version) and [GET_GIT_VERSION](#1017-get_git_version).
 
 When `GET_GIT_VERSION` returns only a tag and no commit hash info (on a release tag), one can query the corresponding hash with the GitHub API, e.g.
+
 ```
 "4747d3884d21e0df8549e3029a920ea390e0b00a"
 ```
+
 ## Frame format
 
 The communication between the firmware and the client is made of frames structured as follows:
 
 ![](images/protocol-packet.png)
+
+```mermaid
+packet
++8: "SOF"
++8: "LRC1"
++16: "CMD"
++16: "STATUS"
++16: "LEN"
++8: "LRC2"
++48: "DATA (variable length)"
++8: "LRC3"
+```
 
 - **SOF**: `1 byte`, "**S**tart-**O**f-**F**rame byte" represents the start of a packet, and must be equal to `0x11`.
 - **LRC1**: `1 byte`, LRC over `SOF` byte, therefore must be equal to `0xEF`.
@@ -58,13 +73,80 @@ Beware, slots in protocol count from 0 to 7 (and from 1 to 8 in the CLI...).
 In the following list, "CLI" refers to one typical CLI command using the described protocol command. But it's not a 1:1 match, there can be other protocol commands used by the CLI command and there can be other CLI commands using the same protocol command...
 
 ### 1000: GET_APP_VERSION
-* Command: no data
-* Response: 2 bytes: `version_major|version_minor`
+
 * CLI: cf `hw version`
+
+```mermaid
+---
+title: "Command Packet"
+---
+packet
++8: "SOF"
++8: "LRC1"
++16: "CMD (=1000)"
++16: "STATUS"
++16: "LEN (=0)"
++8: "LRC2"
++8: "LRC3"
+```
+
+* Command: no data
+
+```mermaid
+---
+title: "Response Packet"
+---
+packet
++8: "SOF"
++8: "LRC1"
++16: "CMD (=1000)"
++16: "STATUS"
++16: "LEN (=2)"
++8: "LRC2"
++8: "major version"
++8: "minor version"
++8: "LRC3"
+```
+
+* Response: 2 bytes: `version_major|version_minor`
+
 ### 1001: CHANGE_DEVICE_MODE
-* Command: 1 byte. `0x00`=emulator mode, `0x01`=reader mode
-* Response: no data
+
 * CLI: cf `hw mode`
+
+```mermaid
+---
+title: "Command Packet"
+---
+packet
++8: "SOF"
++8: "LRC1"
++16: "CMD (=1001)"
++16: "STATUS"
++16: "LEN (=1)"
++8: "LRC2"
++8: "new device mode"
++8: "LRC3"
+```
+
+* device mode: `0x00`=emulator mode, `0x01`=reader mode
+
+```mermaid
+---
+title: "Response Packet"
+---
+packet
++8: "SOF"
++8: "LRC1"
++16: "CMD (=1001)"
++16: "STATUS"
++16: "LEN (=0)"
++8: "LRC2"
++8: "LRC3"
+```
+
+* Response: no data
+
 ### 1002: GET_DEVICE_MODE
 * Command: no data
 * Response: data: 1 byte. `0x00`=emulator mode, `0x01`=reader mode
