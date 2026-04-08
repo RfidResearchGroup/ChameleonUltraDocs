@@ -6,32 +6,32 @@ This Guide is split up into multiple "subguides":
 
 ### About the device
 
-- [[Whitepaper|technical_whitepaper]]: Discover what the Chameleon Ultra is capable of.
+- [Whitepaper](./technical_whitepaper.md): Discover what the Chameleon Ultra is capable of.
 
-- [[Hardware|hardware]]: Learn to know the hardware of your Chameleon.
+- [Hardware](./hardware.md): Learn to know the hardware of your Chameleon.
 
-- [[Firmware|firmware]]: Your Chameleon runs a firmware, learn what it can do and how to use it.
+- [Firmware](./firmware.md): Your Chameleon runs a firmware, learn what it can do and how to use it.
 
 ### Interacting with the device
 
-- [[Quickstart|quickstart]]: For the impatient people to just get you up and running with anything.
+- [Quickstart](./quickstart.md): For the impatient people to just get you up and running with anything.
 
-- [[CLI|cli]]: The official way to control your Chameleon is via the **C**ommand **L**ine **I**nterface (CLI). Learn how to install and master the CLI.
+- [CLI](./cli.md): The official way to control your Chameleon is via the **C**ommand **L**ine **I**nterface (CLI). Learn how to install and master the CLI.
 
-- [[GUIs|gui]]: Some people also develop **G**raphical **U**ser **I**nterfaces (GUIs), these may be a good start for people that do not want to deal with a CLI.
+- [GUIs](./gui.md): Some people also develop **G**raphical **U**ser **I**nterfaces (GUIs), these may be a good start for people that do not want to deal with a CLI.
 
-- [[Troubleshooting|troubleshooting]]: For when things go wrong, here are some common tips to maybe fix whatever issue you might have.
+- [Troubleshooting](./troubleshooting.md): For when things go wrong, here are some common tips to maybe fix whatever issue you might have.
 
 ### For developers
 
-- [[Development|development]]: For all developers. This covers how to build firmware from source and set up a development environment.
+- [Development](./development.md): For all developers. This covers how to build firmware from source and set up a development environment.
 
-- [[SDKs|sdk]]: SDKs for Chameleon, useful if you want to develop your own application to control Chameleon.
+- [SDKs](./sdk.md): SDKs for Chameleon, useful if you want to develop your own application to control Chameleon.
 
-- [[Protocol|protocol]]: The gory details of the communication protocol, useful if you want to develop your own client.
+- [Protocol](./protocol/README.md): The gory details of the communication protocol, useful if you want to develop your own client.
 
 ### Miscellaneous 
 
-- [[Modding|modding]]: Third party moddings worth mentioning.
+- [Modding](./modding.md): Third party moddings worth mentioning.
 
-- [[FAQ|faq]]: **F**requently **A**sked **Q**uestions, if you have a question, it might already be answered here.
+- [FAQ](./faq.md): **F**requently **A**sked **Q**uestions, if you have a question, it might already be answered here.

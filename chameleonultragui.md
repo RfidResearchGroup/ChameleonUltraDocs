@@ -65,7 +65,7 @@ The *Mifare Classic emulator settings* section allows you to toggle various beha
 - *Gen2 Magic Mode*: behaves like a gen2 magic card, makes Block 0 writable ;
 - *Use UID/SAK/ATQA from 0 block*: the Chameleon Ultra stores the UID and other anti-collision data independently of the card content. Enabling this setting tells the Chameleon to derive them from card content block 0. Only for MFC with 4-byte UID ;
 - *Collect nonces (Mfkey32)*: it toggles nonce collection for mfkey32. When enabled you will be prompted to present the Chameleon to a reader. After you have collected nonces the *Present Chameleon to reader* message will change into a *Recover Keys from x nonces* button. Pressing this will start the recovery process ;
-- *Write mode*: Please refer to the [[firmware docs|firmware]].
+- *Write mode*: Please refer to the [firmware docs](./firmware.md).
 
 ### Search dialog
 ![Search Dialog](./images/cugui-searchdialog.png)

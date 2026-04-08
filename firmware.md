@@ -2,7 +2,7 @@
 
 The Chameleon flash contains several parts: the bootloader and its settings, the application, the user data and the SoftDevice.
 
-NOTE: If you are a developer searching for the building instructions, look into [[development|development]]
+NOTE: If you are a developer searching for the building instructions, look into [development](./development.md).
 
 ## The Bootloader
 
