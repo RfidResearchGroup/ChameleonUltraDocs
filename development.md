@@ -80,6 +80,7 @@ install it!
   - Specify your Compiler path (path of previously installed Compiler `bin` folder)
   - Change IntelliSense mode to `gcc-arm (legacy)`
   - Add include path `${workspaceFolder}/**`
+  - If IntelliSense thinks that `uint8_t` and `uint32_t` are undefined add `__STATIC_INLINE` to the list of defines
 
 ## Compiling the code
 
