@@ -246,6 +246,7 @@ Notes: the returned string is the output of `git describe --abbrev=7 --dirty --a
 * CLI: cf `hw battery`
 
 Notes: wait about 5 seconds after wake-up, before querying the battery status, else the device won't be able to give a proper measure and will return zeroes.
+See [[Battery calibration|battery-calibration]] for the recommended procedure and LED health mapping.
 ### 1026: GET_BUTTON_PRESS_CONFIG
 * Command: 1 byte. Char `A` or `B` (`a`/`b` tolerated too)
 * Response: 1 byte, `button_function` according to `settings_button_function_t` enum.
@@ -302,6 +303,12 @@ Notes: wait about 5 seconds after wake-up, before querying the battery status, e
 * Command: 1 byte, bool = `0x00` or `0x01`
 * Response: no data
 * CLI: cf `hw settings blepair`
+### 1041: GET_BATTERY_INFO_EX
+* Command: no data
+* Response: 4 bytes, `voltage[2]|percentage|condition`. Voltage: U16 in Network byte order.
+* CLI: cf `hw battery`
+
+Notes: `condition` is a compact battery condition hint derived from the measured voltage and state-of-charge estimate. It is not a direct state-of-health measurement based on true battery capacity. See [[Battery calibration|battery-calibration]] for the recommended procedure and LED condition mapping.
 ### 2000: HF14A_SCAN
 * Command: no data
 * Response: N bytes: `tag1_data|tag2_data|...` with each tag: `uidlen|uid[uidlen]|atqa[2]|sak|atslen|ats[atslen]`. UID, ATQA, SAK and ATS as bytes.
