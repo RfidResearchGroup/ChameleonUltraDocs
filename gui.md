@@ -5,4 +5,6 @@ Note that in spite of what their name may suggest, all GUIs support both the Ult
 
 - [[Chameleon Ultra GUI|chameleonultragui]] ([github](https://github.com/GameTec-live/ChameleonUltraGUI))
 
+- [ChameLab](https://github.com/m0n5ter/ChameLab)
+
 - [MTools Lite for iOS](https://shop.mtoolstec.com/mifare-classic-tool-for-ios)
